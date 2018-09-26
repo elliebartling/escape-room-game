@@ -2,11 +2,11 @@
   <div id="app">
     <img class="background" src="./assets/logo.svg" />
     <div class="right-column">
-      <FakeWindow iconName="Diary" x="200" y="400">
+      <FakeWindow iconName="Logs" :x="200" :y="400">
         <p>root/bash/diary/</p>
         <Diary></Diary>
       </FakeWindow>
-      <FakeWindow iconName="Shrug" x="500" y="200">
+      <FakeWindow iconName="Shrug" :x="500" :y="200">
         <p>Activate virus?</p>
       </FakeWindow>
     </div>
@@ -22,12 +22,12 @@
         <!-- <p><strong class="red">WARNING:</strong> Level 4 Clearance Needed</p> -->
         <br/>
         <br/>
-        <p><vue-typer text="Welcome back, Zoe. " :repeat="0"></vue-typer></p>
+        <!-- <p><vue-typer text="Welcome back, Zoe. " :repeat="0"></vue-typer></p>
         <p><vue-typer text="WARNING: external IP backtrace in progress. " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
         <p><vue-typer text="Triangulating source... " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
         <p><vue-typer text="Source: NDCC HQ " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
         <p><vue-typer text="Estimating time until NDCC has lock on your location... " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
-        <p><vue-typer text="ETA: 20 min " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
+        <p><vue-typer text="ETA: 20 min " :repeat="0" :pre-type-delay="3000"></vue-typer></p> -->
         <p></p>
       </div>
     </div>

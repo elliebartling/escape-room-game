@@ -4,11 +4,11 @@
       :isActive="true"
       :isResizeable="false"
       :w="500" :h="300"
-      v-on:resizing="resize"
-      v-on:dragging="resize"
       :sticks="[]"
       :x="this.x" :y="this.y">
-      <button @click="() => { this.open = false }">&#x2715;</button>
+      <div class="buttons">
+        <button class="red-bg" @click="() => { this.open = false }"><span>&#x2715;</span></button>
+      </div>
 
       <slot></slot>
     </VueDragResize>
@@ -27,8 +27,8 @@ export default {
   props: {
     msg: String,
     iconName: String,
-    x: String,
-    y: String
+    x: Number,
+    y: Number
   },
   components: {
     VueDragResize
@@ -50,7 +50,7 @@ export default {
 .window {
   // border: 1px solid lighten(#1D1E1E, 30%);
   text-align: left;
-  padding: 10px 20px;
+  padding: 20px 20px;
   background: darken(#1D1F21, 5%);
   box-shadow: 0px 0px 20px rgba(black, .4);
   border-radius: 4px;
@@ -61,13 +61,22 @@ export default {
 }
 
 .window button {
-  background: transparent;
-  color: white;
+  // background: transparent;
+  color: rgba(black, .8);
   border: none;
-  font-size: 15px;
   position: absolute;
-  right: 5px;
+  left: 5px;
+  height: 14px;
+  width: 14px;
+  font-size: 8px;
+  // padding: 2px;
+  font-weight: bold;
   top: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
 }
 
 
