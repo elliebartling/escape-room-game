@@ -122,6 +122,7 @@ body {
   justify-content: flex-start;
   align-items: flex-end;
   overflow: visible;
+  z-index: 100;
 }
 
 .left-column {
