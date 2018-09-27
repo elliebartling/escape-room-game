@@ -18,12 +18,15 @@
     <div class="right-column">
       <Countdown></Countdown>
       <FakeWindow iconName="Logs" :x="100" :y="200" :w="500" :h="600">
-        <p>root/bash/diary/</p>
         <Diary></Diary>
       </FakeWindow>
       <FakeWindow iconName="Shrug.exe" :x="900" :y="50" :w="500" :h="250">
         <Virus></Virus>
       </FakeWindow>
+    </div>
+    <div v-if="victory" class="bg-danger victory-box">
+      <h1>GALT INITIATED</h1>
+      <p>Deploying virus world wide.</p>
     </div>
   </div>
 </template>
@@ -40,10 +43,10 @@ export default {
   name: 'app',
   data: function () {
     return {
-      passcodes: [1776, 1913, 1984],
       date: '2018-09-26 WED',
       time: '15:24:05',
-      messages: [false, false, false, false]
+      messages: [false, false, false, false],
+      victory: false
     }
   },
   components: {
@@ -73,6 +76,10 @@ export default {
   mounted: function() {
     setInterval(this.updateTime, 1000);
     this.updateTime();
+
+    this.$root.$on('victory', () => {
+      this.victory = true
+    })
   }
 }
 </script>
@@ -150,5 +157,26 @@ body {
 
 .date-time {
   opacity: .3
+}
+
+.victory-box {
+  position: absolute;
+  top: 40%;
+  width: 700px;
+  padding: 20px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  animation: flash 0.8s infinite;
+  border: 2px solid #dc3545;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+@keyframes flash {
+	0% { background-color: transparent; }
+	49% { background-color: transparent; }
+	50% { background-color: #dc3545; }
 }
 </style>

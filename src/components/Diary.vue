@@ -1,9 +1,12 @@
 <template>
   <div class="diary-container">
-    <div class="entry" v-for="entry in entries" :key="entry.date">
-      <div class="icon" @click="openEntry(entry)">
-        <img src="../assets/icon-document.svg" />
-        <p>{{ entry.date }}.md</p>
+    <p class="absolute-title">root/bash/diary/</p>
+    <div class="entry-wrapper">
+      <div class="entry" v-for="entry in entries" :key="entry.date">
+        <div class="icon" @click="openEntry(entry)">
+          <img src="../assets/icon-document.svg" />
+          <p>{{ entry.date }}.md</p>
+        </div>
       </div>
     </div>
 
@@ -54,6 +57,35 @@ export default {
 </script>
 
 <style lang="scss">
+.diary-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.absolute-title {
+  position: absolute;
+  left: 30px;
+  top: 4px;
+}
+
+.entry-wrapper {
+  position: relative;
+  width: 170px;
+  top: 30px;
+  padding: 10px;
+  background: darken(#1D1F21, 2%);
+}
+
+.diary-page {
+  // background: lighten(#1D1F21, 5%);
+  position: relative;
+  top: 26px;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+}
+
 .entry .icon {
   flex-direction: row;
   align-items: center;
@@ -70,13 +102,13 @@ export default {
 .entry {
   display: block;
   position: relative;
-  border-radius: 4px;
+  // border-radius: 4px;
   cursor: pointer;
   p {
     margin-bottom: 0px;
   }
   &:hover {
-    background: rgba(white, .2)
+    background: rgba(white, .05)
   }
 }
 </style>

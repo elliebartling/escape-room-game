@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
     <div v-if="this.open" class="window"
-      :isActive="false"
-      :isResizeable="true"
+      :active="true"
+      :isResizeable="false"
       :w="this.w" :h="this.h"
       :sticks="[]"
       :x="this.x" :y="this.y"
@@ -57,16 +57,18 @@ export default {
 .window {
   // border: 1px solid lighten(#1D1E1E, 30%);
   text-align: left;
-  padding: 20px 20px;
+  // padding: 20px 20px;
   background: darken(#1D1F21, 5%);
   box-shadow: 0px 0px 10px rgba(black, .4);
   // border-radius: 4px;
   z-index: 1000 !important;
   position: absolute;
+  overflow: hidden;
 }
 
 .vdr.active::before {
   outline: none !important;
+  display: none;
 }
 
 .window button {
