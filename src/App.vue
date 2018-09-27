@@ -1,16 +1,6 @@
 <template>
   <div id="app">
     <img class="background" src="./assets/logo.svg" />
-    <div class="right-column">
-      <FakeWindow iconName="Logs" :x="200" :y="400">
-        <p>root/bash/diary/</p>
-        <Diary></Diary>
-      </FakeWindow>
-      <FakeWindow iconName="Shrug" :x="500" :y="200">
-        <p>Activate virus?</p>
-      </FakeWindow>
-    </div>
-
     <div class="left-column">
       <div class="console">
         <div class="date-time">
@@ -19,17 +9,21 @@
           <span>{{ time }}</span>
           <br/>
         </div>
-        <!-- <p><strong class="red">WARNING:</strong> Level 4 Clearance Needed</p> -->
         <br/>
         <br/>
-        <!-- <p><vue-typer text="Welcome back, Zoe. " :repeat="0"></vue-typer></p>
-        <p><vue-typer text="WARNING: external IP backtrace in progress. " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
-        <p><vue-typer text="Triangulating source... " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
-        <p><vue-typer text="Source: NDCC HQ " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
-        <p><vue-typer text="Estimating time until NDCC has lock on your location... " :repeat="0" :pre-type-delay="3000"></vue-typer></p>
-        <p><vue-typer text="ETA: 20 min " :repeat="0" :pre-type-delay="3000"></vue-typer></p> -->
+        <ConsoleMessages></ConsoleMessages>
         <p></p>
       </div>
+    </div>
+    <div class="right-column">
+      <Countdown></Countdown>
+      <FakeWindow iconName="Logs" :x="100" :y="200" :w="500" :h="600">
+        <p>root/bash/diary/</p>
+        <Diary></Diary>
+      </FakeWindow>
+      <FakeWindow iconName="Shrug.exe" :x="900" :y="50" :w="500" :h="250">
+        <Virus></Virus>
+      </FakeWindow>
     </div>
   </div>
 </template>
@@ -38,7 +32,9 @@
 import HelloWorld from './components/HelloWorld.vue'
 import FakeWindow from './components/FakeWindow.vue'
 import Diary from './components/Diary.vue'
-import { VueTyper } from 'vue-typer'
+import ConsoleMessages from './components/ConsoleMessages.vue'
+import Countdown from './components/Countdown.vue'
+import Virus from './components/Virus.vue'
 
 export default {
   name: 'app',
@@ -53,8 +49,10 @@ export default {
   components: {
     HelloWorld,
     FakeWindow,
-    VueTyper,
-    Diary
+    ConsoleMessages,
+    Diary,
+    Countdown,
+    Virus
   },
   methods: {
     updateTime: function() {
@@ -122,7 +120,7 @@ body {
   justify-content: flex-start;
   align-items: flex-end;
   overflow: visible;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .left-column {

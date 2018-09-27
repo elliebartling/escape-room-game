@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <VueDragResize v-if="this.open" class="window"
-      :isActive="true"
-      :isResizeable="false"
-      :w="500" :h="300"
+  <div class="wrapper">
+    <div v-if="this.open" class="window"
+      :isActive="false"
+      :isResizeable="true"
+      :w="this.w" :h="this.h"
       :sticks="[]"
-      :x="this.x" :y="this.y">
+      :x="this.x" :y="this.y"
+      :style="getStyle()"
+      >
       <div class="buttons">
-        <button class="red-bg" @click="() => { this.open = false }"><span>&#x2715;</span></button>
+        <button @click="() => { this.open = false }"><span>&#x2715;</span></button>
       </div>
 
       <slot></slot>
-    </VueDragResize>
+    </div>
 
     <div class="icon" @click="this.openWindow">
       <img src="../assets/icon-folder.svg" />
@@ -28,7 +30,9 @@ export default {
     msg: String,
     iconName: String,
     x: Number,
-    y: Number
+    y: Number,
+    w: Number,
+    h: Number
   },
   components: {
     VueDragResize
@@ -41,6 +45,9 @@ export default {
   methods: {
     openWindow: function () {
       this.open = true
+    },
+    getStyle: function() {
+      return `top: ${this.y}px; left: ${this.x}px; width: ${this.w}px; height: ${this.h}px`;
     }
   }
 }
@@ -52,8 +59,10 @@ export default {
   text-align: left;
   padding: 20px 20px;
   background: darken(#1D1F21, 5%);
-  box-shadow: 0px 0px 20px rgba(black, .4);
-  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(black, .4);
+  // border-radius: 4px;
+  z-index: 1000 !important;
+  position: absolute;
 }
 
 .vdr.active::before {
@@ -61,8 +70,9 @@ export default {
 }
 
 .window button {
-  // background: transparent;
-  color: rgba(black, .8);
+  background: transparent;
+  // color: rgba(black, .8);
+  color: white;
   border: none;
   position: absolute;
   left: 5px;
