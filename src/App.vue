@@ -146,8 +146,8 @@ body {
   width: 40%;
   height: 100%;
   position: absolute;
-  top: 15px;
-  left: 10px;
+  top: 25px;
+  left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

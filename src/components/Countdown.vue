@@ -1,6 +1,6 @@
 <template>
 
-    <div v-if="this.open" class="window red-bg"
+    <div v-if="this.open" class="window bg-danger"
       :isActive="true"
       :isResizeable="false"
       :w="600" :h="300"

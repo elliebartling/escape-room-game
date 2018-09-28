@@ -53,16 +53,22 @@ export default {
             }
           },
           {
-            text: 'Source Identified: NDCC HQ ',
+            text: 'Source Identified: NDCC HQ, ETA: 20 minutes ',
             start: false,
             chunk: 2,
             delay: 3100
           },
           {
-            text: 'ETA: 20 minutes ',
+            text: 'Recommended Action: Initiate Security Protocol 17 to protect sensitive \ninformation from falling into the wrong hands. ',
             start: false,
             chunk: 2,
-            delay: 500,
+            delay: 100
+          },
+          {
+            text: 'Initiating Security Protocol 17: This hard drive will self-destruct in 20 minutes. ',
+            start: false,
+            chunk: 2,
+            delay: 100,
             onComplete: () => {
               this.$root.$emit('countdown')
             }
@@ -104,5 +110,10 @@ export default {
 
   .vue-typer.blink-override .caret.complete {
     display: inline-block;
+  }
+
+  .chunk {
+    margin-bottom: 20px;
+    display: block;
   }
 </style>
