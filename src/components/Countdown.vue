@@ -1,6 +1,6 @@
 <template>
 
-    <div v-if="this.open" class="window red-bg"
+    <div v-if="this.open" class="window bg-danger"
       :isActive="true"
       :isResizeable="false"
       :w="600" :h="300"
@@ -8,7 +8,7 @@
       :x="this.x" :y="this.y">
       <VueCountdown v-if="counting" :time="1.2e+6" :leading-zero="false">
        <template slot-scope="props">
-         <h1>{{ props.minutes }}m : {{ props.seconds }}s remaining</h1>
+         <h1>{{ props.minutes }}m:{{ props.seconds }}s remaining</h1>
        </template>
      </VueCountdown>
    </div>
@@ -51,12 +51,16 @@ export default {
   left: 0;
   right: 0;
   margin: auto;
-  top: 5%;
+  top: 10px;
   // transform: translateY(-60%);
   width: 30%;
   text-align: center;
   box-shadow: none;
   border-radius: 0px;
   background: #FF2400;
+  padding: 10px;
+  * {
+    margin-bottom: 0px;
+  }
 }
 </style>

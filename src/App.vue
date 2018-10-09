@@ -1,32 +1,41 @@
 <template>
   <div id="app">
     <img class="background" src="./assets/logo.svg" />
-    <div class="left-column">
-      <div class="console">
-        <div class="date-time">
-          <span>{{ date }}</span>
+    <div v-if="start" id="game">
+      <div class="left-column">
+        <div class="console">
+          <div class="date-time">
+            <span>{{ date }}</span>
+            <br/>
+            <span>{{ time }}</span>
+            <br/>
+          </div>
           <br/>
-          <span>{{ time }}</span>
           <br/>
+          <ConsoleMessages ref="console"></ConsoleMessages>
         </div>
-        <br/>
-        <br/>
-        <ConsoleMessages></ConsoleMessages>
-        <p></p>
+      </div>
+      <div class="right-column">
+        <Countdown></Countdown>
+        <FakeWindow caption="Messages" iconName="mail" :x="350" :y="100" :w="920" :h="540" :badge="1">
+          <Messages></Messages>
+        </FakeWindow>
+        <FakeWindow caption="Logs" iconName="folder" :x="100" :y="200" :w="500" :h="600">
+          <Diary></Diary>
+        </FakeWindow>
+        <FakeWindow caption="Shrug.exe" iconName="exe"  :x="900" :y="300" :w="500" :h="250">
+          <Virus></Virus>
+        </FakeWindow>
+      </div>
+      <div v-if="victory" class="bg-danger victory-box">
+        <h1>GALT INITIATED</h1>
+        <p>Deploying virus world wide.</p>
       </div>
     </div>
-    <div class="right-column">
-      <Countdown></Countdown>
-      <FakeWindow iconName="Logs" :x="100" :y="200" :w="500" :h="600">
-        <Diary></Diary>
-      </FakeWindow>
-      <FakeWindow iconName="Shrug.exe" :x="900" :y="50" :w="500" :h="250">
-        <Virus></Virus>
-      </FakeWindow>
-    </div>
-    <div v-if="victory" class="bg-danger victory-box">
-      <h1>GALT INITIATED</h1>
-      <p>Deploying virus world wide.</p>
+    <div v-else id="intro-screen" @click="() => { this.start = true }">
+      <div class="bg-danger instructions">
+        <h3>Click to Unlock</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +47,7 @@ import Diary from './components/Diary.vue'
 import ConsoleMessages from './components/ConsoleMessages.vue'
 import Countdown from './components/Countdown.vue'
 import Virus from './components/Virus.vue'
+import Messages from './components/Messages.vue'
 
 export default {
   name: 'app',
@@ -46,7 +56,8 @@ export default {
       date: '2018-09-26 WED',
       time: '15:24:05',
       messages: [false, false, false, false],
-      victory: false
+      victory: false,
+      start: false
     }
   },
   components: {
@@ -55,7 +66,8 @@ export default {
     ConsoleMessages,
     Diary,
     Countdown,
-    Virus
+    Virus,
+    Messages
   },
   methods: {
     updateTime: function() {
@@ -134,8 +146,8 @@ body {
   width: 40%;
   height: 100%;
   position: absolute;
-  top: 15px;
-  left: 10px;
+  top: 25px;
+  left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -178,5 +190,30 @@ body {
 	0% { background-color: transparent; }
 	49% { background-color: transparent; }
 	50% { background-color: #dc3545; }
+}
+
+#intro-screen {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(black, .4);
+
+  .instructions {
+    position: absolute;
+    top: 40%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 40%;
+    padding: 40px;
+    * {
+      margin-bottom: 0;
+    }
+  }
 }
 </style>

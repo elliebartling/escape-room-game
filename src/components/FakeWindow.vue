@@ -8,16 +8,18 @@
       :x="this.x" :y="this.y"
       :style="getStyle()"
       >
-      <div class="buttons">
-        <button @click="() => { this.open = false }"><span>&#x2715;</span></button>
-      </div>
-
       <slot></slot>
+      <div class="buttons">
+        <button @click="this.closeWindow"><span>&#x2715;</span></button>
+      </div>
     </div>
 
     <div class="icon" @click="this.openWindow">
-      <img src="../assets/icon-folder.svg" />
-      <span>{{ iconName }}</span>
+      <div v-if="this.displayBadge" class="badge bg-danger">
+        <span>{{ this.badge }}</span>
+      </div>
+      <img :src="icon" />
+      <span>{{ caption }}</span>
     </div>
   </div>
 </template>
@@ -28,27 +30,47 @@ export default {
   name: 'FakeWindow',
   props: {
     msg: String,
+    caption: String,
     iconName: String,
     x: Number,
     y: Number,
     w: Number,
-    h: Number
+    h: Number,
+    badge: Number
   },
   components: {
     VueDragResize
   },
   data: function() {
     return {
-      open: false
+      open: false,
+      badgeNum: 0
+    }
+  },
+  computed: {
+    displayBadge: function() {
+      return (this.badgeNum > 0) ? true : false
+    },
+    icon: function() {
+      return require(`../assets/icon-${this.iconName}.svg`)
     }
   },
   methods: {
     openWindow: function () {
       this.open = true
     },
+    closeWindow: function () {
+      this.open = false
+      if (this.badgeNum > 0) {
+        this.badgeNum = 0
+      }
+    },
     getStyle: function() {
       return `top: ${this.y}px; left: ${this.x}px; width: ${this.w}px; height: ${this.h}px`;
     }
+  },
+  mounted() {
+    this.badgeNum = this.badge
   }
 }
 </script>
@@ -97,10 +119,24 @@ export default {
   flex-direction: column;
   width: 70px;
   margin-bottom: 40px;
+  position: relative;
 }
 
 .icon img {
   max-width: 100%;
   margin-bottom: 10px;
+}
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  position: absolute;
+  top: 2px;
+  font-weight: bold;
+  right: -10px;
 }
 </style>

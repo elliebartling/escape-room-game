@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="100px" height="76px" viewBox="0 0 100 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
-    <title>icon-folder</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icon-folder" fill-rule="nonzero">
-            <path d="M100,19.806 C100,17.736 98.322,16.056 96.25,16.056 L95.927,16.056 C95.579,14.345 94.068,13.056 92.252,13.056 L41.181,13.056 L31.378,1.682 L31.359,1.687 C30.678,0.991 29.731,0.557 28.68,0.557 L3.75,0.557 C1.679,0.557 0.001,2.236 0.001,4.307 L0.001,71.687 L0,71.693 C0,73.764 1.678,75.443 3.748,75.443 L3.75,75.443 L20.623,75.443 L20.625,75.443 L37.5,75.443 L37.501,75.443 L92.25,75.443 L92.252,75.443 C94.324,75.443 96.002,73.764 96.002,71.693 L96.002,71.668 L100,19.806 Z" id="Path" fill="#E3E1E1"></path>
-            <path d="M37.5,72.443 L20.623,72.443 L3.748,72.443 C3.359,72.443 3.039,72.145 3.003,71.764 L6.991,19.96 C6.997,19.883 7,19.806 7,19.729 C7,19.315 7.335,18.979 7.747,18.979 L8.468,18.979 L96.002,19.055 L96.25,19.055 C96.64,19.055 96.961,19.354 96.997,19.734 L96.002,32.641 L93.009,71.462 C93.003,71.539 93,71.616 93,71.693 C93,72.106 92.663,72.443 92.25,72.443 L37.5,72.443 Z" id="Path" fill="#FFFFFF"></path>
-        </g>
-    </g>
-</svg>
+<svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve"><g display="none"><rect x="-132.5" y="-90.005" display="inline" fill="#FFFFFF" width="415.5" height="206"></rect></g><g display="none"><g display="inline"><rect x="10.304" y="16.965" width="11.393" height="1"></rect><path d="M32,6.309H13.948l-2.62-3.067H0v25.516h32V6.309z M31,27.758H1V4.242h9.867l2.321,2.717l0.299,0.351h0.461H31V27.758z"></path></g></g><g><g><path d="M32,6.309H13.948l-2.62-3.067H0v25.516h32V6.309z M21.696,17.965H10.304v-1h11.393V17.965z"></path></g></g><g display="none"><line display="inline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" x1="10.271" y1="17.584" x2="21.663" y2="17.584"></line><g display="inline"><polygon fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="1.001,27.96 30.999,27.96 30.999,6.915     14.076,6.915 11.62,4.04 1.001,4.04   "></polygon></g></g><g display="none"><line display="inline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.5" stroke-miterlimit="10" x1="10.304" y1="17.465" x2="21.696" y2="17.465"></line><g display="inline"><g><path fill="#FFFFFF" d="M11.098,3.742l2.47,2.892l0.15,0.175h0.23H31.5v21.449h-31V3.742H11.098 M11.328,3.242H0v25.516h32V6.309     H13.948L11.328,3.242L11.328,3.242z"></path></g></g></g></svg>
